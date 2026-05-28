@@ -1,0 +1,8 @@
+---
+# handlers file for myweb
+- name: restartservice
+  shell:
+    cmd: |
+      systemctl start nginx
+      systemctl start docker
+

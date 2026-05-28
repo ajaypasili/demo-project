@@ -1,0 +1,19 @@
+- hosts: web
+  remote_user: root
+  become: yes
+
+  tasks:
+    - name: "remove apache"
+      yum:
+        name: httpd
+        state: removed
+
+    - name: "remove docker"
+      yum:
+        name: docker
+        state: removed
+
+    - name: "remove nmap"
+      yum:
+        name: nmap
+        state: removed

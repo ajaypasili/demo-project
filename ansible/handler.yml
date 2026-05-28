@@ -1,0 +1,27 @@
+---
+
+- hosts: web
+  remote_user: root
+  become: yes
+
+  tasks:
+    - name: install docker
+      yum:
+        name: docker
+        state: installed
+      notify: start_service
+
+    - name: install apache
+      yum:
+        name: httpd
+        state: installed
+      notify: start_service
+  handlers:
+    - name: start_service
+      shell:
+        cmd: |
+          systemctl start httpd
+          systemctl start docker
+          systemctl enable httpd
+          systemctl enable docker
+

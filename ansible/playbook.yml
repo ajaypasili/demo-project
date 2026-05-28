@@ -1,0 +1,40 @@
+- hosts: web
+  remote_user: root
+  become: yes
+  tasks:
+    - name: "install apache webserver"
+      yum:
+        name: httpd
+        state: installed
+
+    - name: "install nmap"
+      yum:
+        name: nmap
+        state: installed
+
+    - name: "install docker"
+      yum:
+        name: docker
+        state: installed
+
+
+    - name: "start and enable httpd"
+      service:
+        name: httpd
+        state: started
+        enabled: true
+
+    - name: "start docker"
+      service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: "start nmap"
+      service:
+        name: nmap
+        state: started
+        enabled: true
+
+
+

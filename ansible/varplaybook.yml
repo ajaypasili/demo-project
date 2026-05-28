@@ -1,0 +1,23 @@
+---
+- hosts: web
+  remote_user: root
+  become: yes
+  vars:
+    packages:
+      - httpd
+      - docker
+      - nginx
+
+  tasks:
+    - name: install packages
+      yum:
+        name: "{{ item }}" 
+        state: installed
+
+      loop: "{{ packages }}"
+    - name:
+      service:
+        name: "{{ item }}"
+        state: started
+
+      loop: "{{ packages }}"

@@ -1,0 +1,37 @@
+# Terraform files
+.terraform/
+*.tfstate
+*.tfstate.backup
+terraform.tfvars
+crash.log
+
+# Sensitive files
+*.pem
+*.key
+
+# AWS credentials
+.aws/
+
+# SSH keys
+.ssh/
+
+# Linux hidden files
+.bash_history
+.bash_logout
+.bash_profile
+.bashrc
+.viminfo
+.lesshst
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store

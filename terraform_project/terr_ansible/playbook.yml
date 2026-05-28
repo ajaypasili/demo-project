@@ -1,0 +1,19 @@
+- name: Configure EC2 instance
+  hosts: all
+  become: yes
+  remote_user: ec2-user
+
+  vars:
+    packages:
+      - httpd
+      - docker
+      - nginx
+
+  tasks:
+
+    - name: Install packages
+      yum:
+        name: "{{ item }}"
+        state: present
+
+      loop: "{{ packages }}"
